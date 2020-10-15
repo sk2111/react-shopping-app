@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {toggleCartHidden} from '../../redux/cart/cart.actions';
-
+import {createStructuredSelector} from 'reselect';
+import {selectCurrentUSer} from '../../redux/user/user.selectors';
+import {selectCartHidden} from '../../redux/cart/cart.selectors';
 const Header = ({ currentUser, toggleCartHidden, isCartHidden }) => {
     return (
         <div className="header">
@@ -31,12 +33,10 @@ const Header = ({ currentUser, toggleCartHidden, isCartHidden }) => {
     );
 }
 
-const mapStateToProps = ({user:{currentUser},cart:{hidden}}) => {
-    return {
-        currentUser: currentUser,
-        isCartHidden: hidden
-    }
-};
+const mapStateToProps = createStructuredSelector({
+        currentUser: selectCurrentUSer,
+        isCartHidden: selectCartHidden
+});
 const mapDispatchToProps = (dispatch) => {
     return {
         toggleCartHidden: () => dispatch(toggleCartHidden())
