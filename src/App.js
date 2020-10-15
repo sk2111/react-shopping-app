@@ -37,7 +37,6 @@ class App extends React.Component {
     return this.props.currentUser ? (<Redirect to="/"></Redirect>) : (<SignInAndSignUpPage></SignInAndSignUpPage>);
   }
   render() {
-    console.log("I am App and I am rendering");
     return (
       <div>
         <Header />
