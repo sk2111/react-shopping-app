@@ -1,14 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 
+import {Route} from 'react-router-dom';
+import collectionPage from '../collection/collection.component';
 
-const ShopPage = () => {
+const ShopPage = ({match}) => {
     return (
         <div className="shop-page">
-            <CollectionsOverview></CollectionsOverview>
+        <Route exact path={`${match.path}`} component={CollectionsOverview}></Route>
+        <Route exact path={`${match.path}/:collectionId`} component={collectionPage}></Route>
         </div>
     );
 }
 
-export default connect(null)(ShopPage);
+export default ShopPage;
