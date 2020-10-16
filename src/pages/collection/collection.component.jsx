@@ -7,7 +7,7 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 const collectionPage = ({collection})=>{
     const {title,items} = collection;
     return(
-        <div className="collection">
+        <div className="collection-page">
             <h2 className="title">{title}</h2>
             <div className="items">
                 {
