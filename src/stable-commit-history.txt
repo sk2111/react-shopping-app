@@ -1,0 +1,2 @@
+19 OCT 2020 - redux thunk stable commit 
+20 OCT 2020 - redux sage extnesion 
