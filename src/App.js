@@ -7,28 +7,12 @@ import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
-import { setCurrentUser } from './redux/user/user.actions';
 import {createStructuredSelector} from 'reselect';
 import { selectCurrentUSer } from './redux/user/user.selectors';
+
+
 class App extends React.Component {
   unsubscribeFromAuth = null;
-  componentDidMount() {
-   // const { setCurrentUser } = this.props;
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-    //   if (user) {
-    //     const userRef = await createUserProfileDocument(user);
-    //     userRef.onSnapshot(snapshot => {
-    //       setCurrentUser({
-    //         id: snapshot.id,
-    //         ...snapshot.data()
-    //       });
-    //     })
-    //   }
-    //   else {
-    //     setCurrentUser(null);
-    //   }
-    // });
-  }
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
@@ -52,9 +36,5 @@ class App extends React.Component {
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUSer
 });
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setCurrentUser: user => dispatch(setCurrentUser(user))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default connect(mapStateToProps)(App);
